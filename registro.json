@@ -1,0 +1,14 @@
+{
+  "maestro": {
+    "carnet": "1890-23-10675",
+    "nombre": "Cindy Maytté Ruano Calderón",
+    "correo": "cruanoc9@miumg.edu.gt"
+  },
+  "detalle": [
+    { "misionId": 1, "estado": true },
+    { "misionId": 2, "estado": true },
+    { "misionId": 3, "estado": true },
+    { "misionId": 4, "estado": true },
+    { "misionId": 5, "estado": true }
+  ]
+}

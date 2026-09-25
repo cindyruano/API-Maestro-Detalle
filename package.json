@@ -1,0 +1,27 @@
+{
+  "name": "api-maestro-detalle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cindyruano/API-Maestro-Detalle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cindyruano/API-Maestro-Detalle/issues"
+  },
+  "homepage": "https://github.com/cindyruano/API-Maestro-Detalle#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1",
+    "mssql": "^12.7.2"
+  },
+  "type": "module"
+}
