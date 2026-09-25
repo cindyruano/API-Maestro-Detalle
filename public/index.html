@@ -3,12 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tablero de Misiones</title>
+  <title>Tablero de Misiones | Cindy Ruano</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Tablero de Misiones</h1>
-  <div id="estudiantes">Cargando datos...</div>
+
+  <div class="app-container">
+    <header class="hero-header">
+      <div class="hero-content">
+        <span class="hero-badge">RETO WEB · UMG 2026</span>
+        <h1 class="hero-title">Tablero de Misiones</h1>
+        <p class="hero-subtitle">Visualizador de progreso y cumplimiento de la API Maestro-Detalle</p>
+      </div>
+
+      <div class="stats-grid" id="statsOverview">
+      </div>
+    </header>
+
+    <!-- Barra de búsqueda y controles -->
+    <section class="toolbar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="buscar" placeholder="Buscar estudiante..." autocomplete="off">
+      </div>
+    </section>
+
+    <!-- Grid de participantes -->
+    <main>
+      <div class="cards-grid" id="estudiantes">
+        <div class="loading-state">Cargando misiones del servidor...</div>
+      </div>
+    </main>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>

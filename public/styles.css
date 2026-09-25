@@ -1,2 +1,296 @@
-body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f9; }
-.card { background: white; padding: 15px; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+:root {
+  --bg-main: #0f0d15;
+  --bg-card: #181524;
+  --bg-card-hover: #211c30;
+  --border-color: #2e2842;
+  --border-highlight: #ec4899;
+  
+  --text-primary: #f8fafc;
+  --text-muted: #a1a1aa;
+  
+  --pink-accent: #f472b6;
+  --purple-accent: #a855f7;
+  --pink-glow: rgba(244, 114, 182, 0.2);
+  --green-success: #10b981;
+  
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  padding: 2.5rem 1.5rem;
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(168, 85, 247, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(244, 114, 182, 0.08) 0%, transparent 40%);
+}
+
+.app-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Hero Header */
+.hero-header {
+  background: linear-gradient(135deg, rgba(24, 21, 36, 0.9), rgba(33, 28, 48, 0.9));
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 900px) {
+  .hero-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(244, 114, 182, 0.12);
+  color: var(--pink-accent);
+  border: 1px solid rgba(244, 114, 182, 0.3);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.8rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(90deg, #ffffff, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-top: 0.4rem;
+}
+
+/* Métricas Prominentes */
+.stats-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.25rem 1.75rem;
+  min-width: 130px;
+  text-align: center;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-top: 0.35rem;
+}
+
+/* Búsqueda */
+.toolbar {
+  margin-bottom: 2rem;
+}
+
+.search-box {
+  position: relative;
+  max-width: 450px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+}
+
+.search-box input {
+  width: 100%;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 0.9rem 1rem 0.9rem 3rem;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-box input:focus {
+  border-color: var(--pink-accent);
+  box-shadow: 0 0 0 4px var(--pink-glow);
+}
+
+/* Grid de Tarjetas */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25 ease;
+}
+
+.card:hover {
+  background-color: var(--bg-card-hover);
+  border-color: rgba(244, 114, 182, 0.4);
+  transform: translateY(-3px);
+}
+
+.card.is-me {
+  border-color: var(--pink-accent);
+  box-shadow: 0 0 20px rgba(244, 114, 182, 0.15);
+  background: linear-gradient(180deg, rgba(244, 114, 182, 0.06) 0%, var(--bg-card) 100%);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.student-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.student-carnet {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.pct-badge {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 10px;
+}
+
+.pct-badge.complete {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--green-success);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.pct-badge.partial {
+  background-color: rgba(244, 114, 182, 0.15);
+  color: var(--pink-accent);
+  border: 1px solid rgba(244, 114, 182, 0.3);
+}
+
+/* Barra de progreso */
+.progress-container {
+  margin: 1rem 0;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.progress-bar-bg {
+  height: 8px;
+  background-color: var(--bg-main);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.fill-complete { background: linear-gradient(90deg, #10b981, #34d399); }
+.fill-partial { background: linear-gradient(90deg, #a855f7, #f472b6); }
+
+/* Especificaciones / Misiones */
+.missions-list {
+  list-style: none;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.mission-item {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+}
+
+.mission-item.done {
+  color: var(--text-primary);
+}
+
+.check-icon {
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.check-icon.done { color: var(--green-success); }
+.check-icon.pending { color: #52525b; }
+
+.loading-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem;
+  color: var(--text-muted);
+}
